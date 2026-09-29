@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f2ec">
+  <title>Lista de tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <p class="eyebrow">ORGANIZAÇÃO DO DIA</p>
+      <h1>Lista de tarefas</h1>
+      <p class="intro">Um passo de cada vez. O que precisa ser feito?</p>
+    </header>
+
+    <form class="task-form" id="task-form">
+      <label class="visually-hidden" for="task-input">Nova tarefa</label>
+      <input
+        id="task-input"
+        name="task"
+        type="text"
+        placeholder="Ex.: Estudar Cypress"
+        autocomplete="off"
+        data-cy="task-input"
+      >
+      <button class="add-button" type="submit" data-cy="add-button">
+        Adicionar
+      </button>
+    </form>
+    <p class="error-message" data-cy="error-message" role="alert"></p>
+
+    <section class="tasks-section" aria-labelledby="tasks-heading">
+      <div class="section-heading">
+        <h2 id="tasks-heading">Suas tarefas</h2>
+        <span class="task-count" data-cy="task-count">0</span>
+      </div>
+
+      <div class="list-controls">
+        <label class="visually-hidden" for="task-filter">Filtrar tarefas</label>
+        <select id="task-filter" data-cy="task-filter">
+          <option value="all">Todas</option>
+          <option value="pending">Pendentes</option>
+          <option value="completed">Concluídas</option>
+        </select>
+        <button class="text-button" type="button" data-cy="remove-all-button">
+          Remover todas
+        </button>
+      </div>
+
+      <ul class="task-list" data-cy="task-list" aria-live="polite"></ul>
+      <p class="empty-message" data-cy="empty-message">Nenhuma tarefa por aqui.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
